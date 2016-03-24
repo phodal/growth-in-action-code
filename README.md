@@ -3,6 +3,8 @@ Code of Growth In Action Django
 
 
 
+Blogpost basis on [https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django](https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django)
+
 
 License
 ---
