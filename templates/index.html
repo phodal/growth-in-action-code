@@ -2,17 +2,6 @@
 {% block title %}Welcome to my blog{% endblock %}
 
 {% block content %}
-    <h2>Categories</h2>
-    {% if categories %}
-        <ul>
-        {% for category in categories %}
-            <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no posts.</p>
-    {% endif %}
-
     <h2>Posts</h2>
     {% if posts %}
         <ul>

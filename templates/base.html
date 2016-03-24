@@ -4,12 +4,14 @@
     <head>
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{% static "css/material.min.css" %}">
-        <script src="{% static "js/material.min.js" %}"></script>
     </head>
-    <body>
-        <h1>{% block title %}Welcome to my block{% endblock %}</h1>
+    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+        <h3>{% block title %}Welcome to my block{% endblock %}</h3>
+        <main class="mdl-layout__content">
         {% block content %}
 
         {% endblock %}
+        </main>
+        <script src="{% static "js/material.min.js" %}"></script>
     </body>
 </html>
