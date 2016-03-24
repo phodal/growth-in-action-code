@@ -1,6 +1,10 @@
+{% load staticfiles %}
+
 <html>
     <head>
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static "css/material.min.css" %}">
+        <script src="{% static "js/material.min.js" %}"></script>
     </head>
     <body>
         <h1>{% block title %}Welcome to my block{% endblock %}</h1>
