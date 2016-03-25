@@ -1,15 +1,15 @@
 {% load staticfiles %}
 <html>
-    <head>
-        <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="{% static "css/material.min.css" %}">
-    </head>
-    <body class="mdl-layout__container">
-        <main class="mdl-components__pages">
-        {% block content %}
+<head>
+    <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/material.min.css' %}">
+</head>
+<body class="mdl-layout__container">
+<main class="mdl-components__pages">
+    {% block content %}
 
-        {% endblock %}
-        </main>
-        <script src="{% static "js/material.min.js" %}"></script>
-    </body>
+    {% endblock %}
+</main>
+<script src="{% static 'js/material.min.js' %}"></script>
+</body>
 </html>
