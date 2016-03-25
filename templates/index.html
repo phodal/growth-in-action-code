@@ -11,7 +11,7 @@
                  <h2 class="mdl-card__title-text"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
               </div>
               <div class="mdl-card__supporting-text">
-                  {{post.body}}
+                  {{post.body | slice:":80"}}
               </div>
               <div class="mdl-card__actions">
                  {{post.posted}} - By {{post.author}}
