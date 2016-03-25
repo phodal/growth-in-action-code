@@ -2,3 +2,4 @@ django==1.9.4
 selenium==2.53.1
 fabric==1.10.2
 djangorestframework==3.3.3
+djangorestframework-jwt==1.7.2
