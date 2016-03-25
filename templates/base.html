@@ -5,9 +5,8 @@
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{% static "css/material.min.css" %}">
     </head>
-    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-        <h3>{% block title %}Welcome to my block{% endblock %}</h3>
-        <main class="mdl-layout__content">
+    <body class="mdl-layout__container">
+        <main class="mdl-components__pages">
         {% block content %}
 
         {% endblock %}
