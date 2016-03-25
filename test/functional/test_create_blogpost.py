@@ -1,7 +1,7 @@
-from django.test import LiveServerTestCase
 from django.contrib.auth.models import User
-
+from django.test import LiveServerTestCase
 from selenium import webdriver
+
 
 class BlogpostCase(LiveServerTestCase):
     def setUp(self):
