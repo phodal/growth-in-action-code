@@ -16,4 +16,8 @@ urlpatterns = patterns('',
     url(r'^blog/(?P<slug>[^\.]+).html', 'blogpost.views.view_post', name='view_blog_post'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(apiRouter.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
+    url(r'^api-token-refresh/', 'rest_framework_jwt.views.refresh_jwt_token'),
+    url(r'^api-token-verify/', 'rest_framework_jwt.views.verify_jwt_token'),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
