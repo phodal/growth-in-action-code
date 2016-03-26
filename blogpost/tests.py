@@ -1,10 +1,7 @@
-from datetime import datetime
-
 from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from django.test import TestCase
 
-from blogpost.models import Blogpost
 from blogpost.views import index, view_post
 
 
