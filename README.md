@@ -1,10 +1,17 @@
 Code of Growth In Action Django
 ===
 
+**Feature**
 
+ - Basic Blog Model
+ - Unit, Service, Function test
+ - RESTful API
+ - Json Web Token
 
-Blogpost basis on [https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django](https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django)
+Thanks to
+---
 
+Blogpost Model & Template basis on [https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django](https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django)
 
 License
 ---
