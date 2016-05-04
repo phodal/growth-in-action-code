@@ -16,6 +16,6 @@ class HomePageTest(TestCase):
         self.assertIn(b'<title>Welcome to my blog</title>', response.content)
 
 class BlogpostTest(TestCase):
-    def test_blogpost_url_resolves_to_home_page_view(self):
+    def test_blogpost_url_resolves_to_blog_post_view(self):
         found = resolve('/blog/this_is_a_test.html')
         self.assertEqual(found.func, view_post)
