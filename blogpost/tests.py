@@ -24,7 +24,7 @@ class BlogpostTest(TestCase):
         found = resolve('/blog/this_is_a_test.html')
         self.assertEqual(found.func, view_post)
 
-    def test_blogpost_url_resolves_to_home_page_view(self):
+    def test_blogpost_create_with_view(self):
         Blogpost.objects.create(title='hello', author='admin', slug='this_is_a_test', body='This is a blog',
                                 posted=datetime.now)
         response = self.client.get('/blog/this_is_a_test.html')
