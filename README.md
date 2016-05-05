@@ -1,5 +1,13 @@
-Code of Growth In Action Django
+[全栈增长工程师指南Python篇](https://github.com/phodal/growth-in-action-python)源码
 ===
+
+技术栈
+---
+
+ - Django
+ - Django REST Framework
+ - Django JWT 
+ - Selenium
 
 **Feature**
 
