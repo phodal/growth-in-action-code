@@ -11,7 +11,7 @@ class HomepageTestCase(LiveServerTestCase):
         self.selenium.quit()
         super(HomepageTestCase, self).tearDown()
 
-    def test_create_user(self):
+    def test_visit_homepage(self):
         self.selenium.get(
             '%s%s' % (self.live_server_url,  "/")
         )
