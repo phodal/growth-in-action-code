@@ -6,10 +6,11 @@ from django.contrib import admin
 
 # Routers provide an easy way of automatically determining the URL conf.
 from rest_framework import routers
-from blogpost.api import BlogpostSet
+from blogpost.api import BlogpostSet, UserDetail
 
 apiRouter = routers.DefaultRouter()
 apiRouter.register(r'blogpost', BlogpostSet)
+apiRouter.register(r'user', UserDetail)
 
 urlpatterns = patterns('',
     (r'^$', 'blogpost.views.index'),
