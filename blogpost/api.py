@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers, viewsets
 from blogpost.models import Blogpost
-
+from rest_framework import permissions
 
 class BlogpsotSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -22,5 +22,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserDetail(viewsets.ReadOnlyModelViewSet):
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
