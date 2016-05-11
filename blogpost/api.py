@@ -1,5 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers, viewsets
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+
 from blogpost.models import Blogpost
 from rest_framework import permissions
 
@@ -22,6 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserDetail(viewsets.ReadOnlyModelViewSet):
+    authentication_classes = [JSONWebTokenAuthentication, BasicAuthentication, SessionAuthentication]
     permission_classes = (permissions.IsAuthenticated,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
