@@ -1,14 +1,11 @@
 from django.contrib.auth.models import User
-from rest_framework import permissions
 from rest_framework import serializers, viewsets
-from rest_framework import status
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from blogpost.models import Blogpost
-
+from rest_framework import permissions
 
 class BlogpsotSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -16,19 +13,10 @@ class BlogpsotSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('title', 'author', 'body', 'slug', 'id')
 
 
-@api_view(['GET', 'POST', 'OPTIONS'])
-def blogpostList(request):
-    if request.method == 'GET':
-        blogObject = Blogpost.objects.all()
-        blogpost = BlogpsotSerializer(blogObject, many=True)
-        return Response(blogpost.data)
-
-    elif request.method == 'POST' or request.method == "OPTIONS":
-        blogpost = BlogpsotSerializer(data=request.data)
-        if blogpost.is_valid():
-            blogpost.save()
-            return Response(blogpost.data, status=status.HTTP_201_CREATED)
-        return Response(blogpost.errors, status=status.HTTP_400_BAD_REQUEST)
+# ViewSets define the view behavior.
+class BlogpostSet(viewsets.ModelViewSet):
+    queryset = Blogpost.objects.all()
+    serializer_class = BlogpsotSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
