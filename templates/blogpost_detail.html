@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load comments %}
+
 {% block head_title %}{{ post.title }}{% endblock %}
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -13,5 +15,8 @@
     <div class="mdl-card__actions">
         {{post.posted}} - By {{post.author}}
     </div>
+
+{% render_comment_list for post %}
+
 </div>
 {% endblock %}

@@ -15,6 +15,7 @@ apiRouter.register(r'user', UserDetail)
 urlpatterns = patterns('',
     (r'^$', 'blogpost.views.index'),
     url(r'^blog/(?P<slug>[^\.]+).html', 'blogpost.views.view_post', name='view_blog_post'),
+    url(r'^comments/', include('django_comments.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(apiRouter.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

@@ -5,3 +5,4 @@ djangorestframework==3.3.3
 djangorestframework-jwt==1.7.2
 django-cors-headers==1.1.0
 django-contrib-comments==1.7.1
+pytz==2016.4
