@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.flatpages.sitemaps import FlatPageSitemap
 from django.contrib.sitemaps.views import sitemap
 from rest_framework import routers
 
@@ -16,6 +17,7 @@ apiRouter.register(r'user', UserDetail)
 
 sitemaps =  {
     "page": PageSitemap,
+    'flatpages': FlatPageSitemap,
     "blog": BlogSitemap
 }
 
