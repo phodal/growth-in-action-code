@@ -1,8 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse
-
 from blogpost.models import Blogpost
-
 
 class PageSitemap(Sitemap):
     priority = 0.5
@@ -20,10 +18,7 @@ class BlogSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Blogpost.objects
+        return Blogpost.objects.all()
 
     def lastmod(self, obj):
         return obj.posted
-
-    def get_urls(self, page=1, site=None, protocol=None):
-        return ""
