@@ -2,22 +2,25 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-
-
-# Routers provide an easy way of automatically determining the URL conf.
 from django.contrib.sitemaps.views import sitemap
 from rest_framework import routers
+
+from blogpost import views as blogpostViews
 from blogpost.api import BlogpostSet, UserDetail
-from sitemap.sitemaps import BlogSitemap
+
+from sitemap.sitemaps import BlogSitemap, PageSitemap
 
 apiRouter = routers.DefaultRouter()
 apiRouter.register(r'blogpost', BlogpostSet)
 apiRouter.register(r'user', UserDetail)
 
-sitemaps =  {"all": BlogSitemap}
+sitemaps =  {
+    "page": PageSitemap,
+    "blog": BlogSitemap
+}
 
 urlpatterns = patterns('',
-    (r'^$', 'blogpost.views.index'),
+    url(r'^$', blogpostViews.index, name='main'),
     url(r'^blog/(?P<slug>[^\.]+).html', 'blogpost.views.view_post', name='view_blog_post'),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^admin/', include(admin.site.urls)),
