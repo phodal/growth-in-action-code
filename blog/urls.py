@@ -14,7 +14,7 @@ apiRouter = routers.DefaultRouter()
 apiRouter.register(r'blogpost', BlogpostSet)
 apiRouter.register(r'user', UserDetail)
 
-sitemaps = {"sitemaps": {"all": BlogSitemap}}
+sitemaps =  {"all": BlogSitemap}
 
 urlpatterns = patterns('',
     (r'^$', 'blogpost.views.index'),
