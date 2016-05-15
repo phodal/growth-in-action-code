@@ -1,9 +1,10 @@
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse
 from blogpost.models import Blogpost
+from django.apps import apps as django_apps
 
 class PageSitemap(Sitemap):
-    priority = 0.5
+    priority = 1.0
     changefreq = 'daily'
 
     def items(self):
@@ -22,3 +23,11 @@ class BlogSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.posted
+
+class FlatPageSitemap(Sitemap):
+    priority = 0.8
+
+    def items(self):
+        Site = django_apps.get_model('sites.Site')
+        current_site = Site.objects.get_current()
+        return current_site.flatpage_set.filter(registration_required=False)
