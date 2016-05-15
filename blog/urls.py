@@ -5,12 +5,16 @@ from django.contrib import admin
 
 
 # Routers provide an easy way of automatically determining the URL conf.
+from django.contrib.sitemaps.views import sitemap
 from rest_framework import routers
 from blogpost.api import BlogpostSet, UserDetail
+from sitemap.sitemaps import BlogSitemap
 
 apiRouter = routers.DefaultRouter()
 apiRouter.register(r'blogpost', BlogpostSet)
 apiRouter.register(r'user', UserDetail)
+
+sitemaps = {"sitemaps": {"all": BlogSitemap}}
 
 urlpatterns = patterns('',
     (r'^$', 'blogpost.views.index'),
@@ -18,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^comments/', include('django_comments.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(apiRouter.urls)),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
     url(r'^api-token-refresh/', 'rest_framework_jwt.views.refresh_jwt_token'),
