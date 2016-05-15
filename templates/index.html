@@ -2,20 +2,14 @@
 {% block title %}Welcome to my blog{% endblock %}
 
 {% block content %}
-<div class="mdl-cell mdl-cell--12-col">
-    <h2>博客</h2>
+<h2>博客</h2>
+<div class="row">
     {% if posts %}
     {% for post in posts %}
-    <div class="mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-        </div>
-        <div class="mdl-card__supporting-text">
-            {{post.body | slice:":80"}}
-        </div>
-        <div class="mdl-card__actions">
-            {{post.posted}} - By {{post.author}}
-        </div>
+    <div class="col-sm-4">
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        {{post.body | slice:":80"}}
+        {{post.posted}} - By {{post.author}}
     </div>
     {% endfor %}
     {% else %}
