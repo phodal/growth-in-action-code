@@ -14,7 +14,9 @@
  - Basic Blog Model
  - Unit, Service, Function test
  - RESTful API
- - Json Web Token
+ - AutoComplete API
+ - Json Web Token Auth
+ - Sitemap
 
 Thanks to
 ---
