@@ -12,8 +12,8 @@ from blogpost.api import BlogpostSet, UserDetail
 from sitemap.sitemaps import BlogSitemap, PageSitemap, FlatPageSitemap
 
 apiRouter = routers.DefaultRouter()
-apiRouter.register(r'blogpost', BlogpostSet)
-apiRouter.register(r'user', UserDetail)
+apiRouter.register(r'blogpost', BlogpostSet, 'Blogpost')
+apiRouter.register(r'user', UserDetail, 'User')
 
 sitemaps =  {
     "page": PageSitemap,
