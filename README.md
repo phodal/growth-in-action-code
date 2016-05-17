@@ -1,4 +1,4 @@
-[Growth实战 Python篇](https://github.com/phodal/growth-in-action-python)源码
+[全栈增长工程师实战](https://github.com/phodal/growth-in-action-python)源码
 ===
 
 技术栈
