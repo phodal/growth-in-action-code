@@ -33,7 +33,7 @@
             <div class="col-sm-3 col-md-3 pull-right">
             <form class="navbar-form" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <input type="text" id="typeahead-input" class="form-control" placeholder="Search" name="search" data-provide="typeahead">
                     <div class="input-group-btn">
                         <button class="btn btn-default search-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
@@ -64,5 +64,6 @@
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/bootstrap3-typeahead.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
