@@ -30,7 +30,16 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/admin" id="loginLink">登入</a></li>
             </ul>
-
+            <div class="col-sm-3 col-md-3 pull-right">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default search-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
         </nav>
     </div>
 </header>
@@ -54,5 +63,6 @@
 </footer>
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap3-typeahead.min.js' %}"></script>
 </body>
 </html>

@@ -43,3 +43,7 @@
 .footer .container .text-muted {
   margin: 20px 0;
 }
+
+.search-button {
+    padding: 9px;
+}
