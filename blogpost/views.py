@@ -1,6 +1,4 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
-
-# Create your views here.
+from django.shortcuts import render_to_response, get_object_or_404
 from djpjax import pjax
 
 from blogpost.models import Blogpost

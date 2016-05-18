@@ -2,7 +2,8 @@
 {% block title %}Welcome to my blog{% endblock %}
 
 {% block content %}
-<h2>博客</h2>
+{{request.flavour}}
+<h2>{% if flavour == "mobile" %}(mobile version){% endif %}博客</h2>
 <div class="row">
     {% if posts %}
     {% for post in posts %}

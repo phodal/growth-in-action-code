@@ -35,13 +35,18 @@ TEMPLATES = [
         'DIRS': [
             'templates/'
         ],
-        'APP_DIRS': True,
         'OPTIONS': {
+            'loaders': {
+                'django_mobile.loader.Loader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader'
+            },
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_mobile.context_processors.flavour'
             ],
         },
     },
@@ -61,6 +66,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django_comments',
     'rest_framework',
+    'django_mobile',
     'blogpost'
 )
 
@@ -75,7 +81,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django_mobile.middleware.MobileDetectionMiddleware',
+    'django_mobile.middleware.SetFlavourMiddleware'
 )
 
 ROOT_URLCONF = 'blog.urls'
