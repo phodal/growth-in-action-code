@@ -8,8 +8,6 @@
     <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <script src="{% static 'js/mobile/riot+compiler.min.js' %}"></script>
-    <script src="{% static 'js/mobile/rx.core.min.js' %}"></script>
 
 </head>
 <body data-twttr-rendered="true" class="bs-docs-home">
@@ -62,16 +60,6 @@
 </main>
 <div class="container" id="container">
     <blog></blog>
-
-    <script type="riot/tag">
-      <blog class="row">
-       <div class="col-sm-4" each={opts}>
-            <h2><a href="/blog/{slug}.html">{title }</a></h2>
-            {body}
-            {posted} - By {author}
-        </div>
-      </blog>
-    </script>
 </div>
 <footer class="footer">
     <div class="container">
@@ -81,12 +69,32 @@
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/bootstrap3-typeahead.min.js' %}"></script>
-<script src="{% static 'js/jquery.pjax.js' %}"></script>
-<script src="{% static 'js/nprogress.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'riot/blog.tag' %}" type="riot/tag"></script>
+<script src="{% static 'js/mobile/riot+compiler.min.js' %}"></script>
+<script src="{% static 'js/mobile/rx.core.min.js' %}"></script>
 
 <script>
     'use strict';
+    $(document).ready(function () {
+        $('#typeahead-input').typeahead({
+            source: function (query, process) {
+                return $.get('/api/blogpost/?format=json&title=' + query, function (data) {
+                    return process(data);
+                });
+            },
+            updater: function (item) {
+                return item;
+            },
+            displayText: function (item) {
+                return item.title;
+            },
+            afterSelect: function (item) {
+                location.href = 'http://localhost:8000/blog/' + item.slug + ".html";
+            },
+            delay: 500
+        });
+    });
+
 
     var responseStream = Rx.Observable.create(function (observer) {
         jQuery.getJSON('/api/blogpost/?format=json')
@@ -102,7 +110,7 @@
     });
 
     responseStream.subscribe(function (response) {
-       riot.mount("blog", response)
+       riot.mount("blog", response);
     });
 </script>
 </body>
