@@ -8,6 +8,7 @@
     <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/mobile/riot+compiler.min.js' %}"></script>
 </head>
 <body data-twttr-rendered="true" class="bs-docs-home">
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
@@ -56,20 +57,25 @@
     </div>
 </main>
 <div class="container" id="container">
-    <div class="row">
-        <h2>Mobile</h2>
-    </div>
+    <hey></hey>
+
+    <script type="riot/tag">
+      <hey>
+        <p>Hey {myProp}!</p>
+        <p>Viva {opts.mountedProp}!</p>
+
+        this.myProp = "Riot"
+      </hey>
+    </script>
+
+    <script>
+      riot.mount("hey", { mountedProp: "JavaScript" })
+    </script>
 </div>
 <footer class="footer">
     <div class="container">
         <p class="text-muted">@Copyright Phodal.com</p>
     </div>
 </footer>
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/bootstrap3-typeahead.min.js' %}"></script>
-<script src="{% static 'js/jquery.pjax.js' %}"></script>
-<script src="{% static 'js/nprogress.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
