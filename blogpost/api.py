@@ -31,6 +31,9 @@ class BlogpostSet(viewsets.ModelViewSet):
     serializer_class = BlogpsotSerializer
     search_fields = 'title'
 
+    def get_queryset(self):
+        return Blogpost.objects.all()
+
     def list(self, request):
         queryset = Blogpost.objects.all()
 
