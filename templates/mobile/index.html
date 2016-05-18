@@ -57,19 +57,26 @@
     </div>
 </main>
 <div class="container" id="container">
-    <hey></hey>
+    <blog></blog>
 
     <script type="riot/tag">
-      <hey>
-        <p>Hey {myProp}!</p>
-        <p>Viva {opts.mountedProp}!</p>
-
-        this.myProp = "Riot"
-      </hey>
+      <blog class="row">
+       <div class="col-sm-4">
+            <h2><a href="{ post.slug }">{opts.post.title }</a></h2>
+            {opts.post.body}
+            {opts.post.posted} - By {opts.post.author}
+        </div>
+      </blog>
     </script>
 
     <script>
-      riot.mount("hey", { mountedProp: "JavaScript" })
+      riot.mount("blog", { post: {
+          title: 'this is a title',
+          body: 'body',
+          posted: '2016',
+          slug: 'this-is-a-url',
+          author: 'phodal'
+      } })
     </script>
 </div>
 <footer class="footer">
