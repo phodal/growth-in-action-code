@@ -19,20 +19,27 @@ $(document).ready(function () {
     });
 });
 
+var responseStream = function (blogId) {
+    var url = '/api/blogpost/?format=json';
 
-var responseStream = Rx.Observable.create(function (observer) {
-    jQuery.getJSON('/api/blogpost/?format=json')
-        .done(function (response) {
-            observer.onNext(response);
-        })
-        .fail(function (jqXHR, status, error) {
-            observer.onError(error);
-        })
-        .always(function () {
-            observer.onCompleted();
-        });
-});
+    if(blogId) {
+        url = '/api/blogpost/' + blogId + '?format=json'
+    }
 
-responseStream.subscribe(function (response) {
+    return Rx.Observable.create(function (observer) {
+        jQuery.getJSON(url)
+            .done(function (response) {
+                observer.onNext(response);
+            })
+            .fail(function (jqXHR, status, error) {
+                observer.onError(error);
+            })
+            .always(function () {
+                observer.onCompleted();
+            });
+    });
+};
+
+responseStream().subscribe(function (response) {
     riot.mount("blog", response);
 });

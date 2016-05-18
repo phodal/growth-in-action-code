@@ -11,20 +11,7 @@
 
         click(event)
         {
-            var blogId = event.item.id;
-            var responseStream = Rx.Observable.create(function (observer) {
-                jQuery.getJSON('/api/blogpost/' + blogId + '?format=json')
-                        .done(function (response) {
-                            observer.onNext(response);
-                        })
-                        .fail(function (jqXHR, status, error) {
-                            observer.onError(error);
-                        })
-                        .always(function () {
-                            observer.onCompleted();
-                        });
-            });
-            responseStream.subscribe(function (response) {
+            responseStream(1).subscribe(function (response) {
                 riot.mount("blog", [response]);
             });
         }
