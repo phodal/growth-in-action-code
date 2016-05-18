@@ -61,22 +61,12 @@
 
     <script type="riot/tag">
       <blog class="row">
-       <div class="col-sm-4">
-            <h2><a href="{ post.slug }">{opts.post.title }</a></h2>
-            {opts.post.body}
-            {opts.post.posted} - By {opts.post.author}
+       <div class="col-sm-4" each={opts}>
+            <h2><a href="{ post.slug }">{title }</a></h2>
+            {body}
+            {posted} - By {author}
         </div>
       </blog>
-    </script>
-
-    <script>
-      riot.mount("blog", { post: {
-          title: 'this is a title',
-          body: 'body',
-          posted: '2016',
-          slug: 'this-is-a-url',
-          author: 'phodal'
-      } })
     </script>
 </div>
 <footer class="footer">
@@ -90,5 +80,11 @@
 <script src="{% static 'js/jquery.pjax.js' %}"></script>
 <script src="{% static 'js/nprogress.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+
+<script>
+    $.get('/api/blogpost/?format=json', function (data) {
+        riot.mount("blog", data)
+    })
+</script>
 </body>
 </html>
