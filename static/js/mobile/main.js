@@ -42,4 +42,10 @@ var responseStream = function (blogId) {
 
 responseStream().subscribe(function (response) {
     riot.mount("blog", response);
+
+    riot.route.start();
+    riot.route('/blog/*', function(id) {
+        riot.mount("blogDetail", {id: id});
+    })
 });
+

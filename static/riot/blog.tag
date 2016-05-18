@@ -12,7 +12,7 @@
 
         click(event)
         {
-            riot.mount("blogDetail");
+            riot.route("/blog/" + event.item.id);
             self.unmount()
         }
     </script>
