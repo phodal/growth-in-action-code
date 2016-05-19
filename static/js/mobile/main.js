@@ -41,14 +41,15 @@ var responseStream = function (blogId) {
 };
 
 responseStream().subscribe(function (response) {
+    console.log(response);
     riot.mount("blog", response);
 
     riot.route.base('#');
 
     riot.route('/blogDetail/*', function(id) {
-        // riot.unmount($('blog'));
-        riot.mount($('blogDetail'), id)
-    })
+        riot.mount("blogDetail", {id: id})
+    });
+
     riot.route.start();
 });
 

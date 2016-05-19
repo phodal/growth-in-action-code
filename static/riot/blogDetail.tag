@@ -6,13 +6,13 @@
     </div>
     <script>
         var self = this;
+
         this.on('update', function () {
             console.log(this.opts) // Succeeds
         })
 
-        this.on('mount', function () {
-            console.log(this.opts);
-            responseStream(1).subscribe(function (response) {
+        this.on('mount', function (id) {
+            responseStream(this.opts.id).subscribe(function (response) {
                 self.opts = response;
                 self.update();
             })
