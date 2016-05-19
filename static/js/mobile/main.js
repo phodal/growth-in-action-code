@@ -40,16 +40,13 @@ var responseStream = function (blogId) {
     });
 };
 
-responseStream().subscribe(function (response) {
-    console.log(response);
-    riot.mount("blog", response);
+riot.mount("navbar");
+riot.mount("blog");
 
-    riot.route.base('#');
+riot.route.base('#');
 
-    riot.route('/blogDetail/*', function(id) {
-        riot.mount("blogDetail", {id: id})
-    });
-
-    riot.route.start();
+riot.route('/blogDetail/*', function(id) {
+    riot.mount("blogDetail", {id: id})
 });
 
+riot.route.start();
