@@ -23,7 +23,7 @@ var responseStream = function (blogId) {
     var url = '/api/blogpost/?format=json';
 
     if(blogId) {
-        url = '/api/blogpost/' + blogId + '?format=json'
+        url = '/api/blogpost/' + blogId + '?format=json';
     }
 
     return Rx.Observable.create(function (observer) {
@@ -43,9 +43,12 @@ var responseStream = function (blogId) {
 responseStream().subscribe(function (response) {
     riot.mount("blog", response);
 
-    riot.route.start();
-    riot.route('/blog/*', function(id) {
-        riot.mount("blogDetail", {id: id});
+    riot.route.base('#')
+
+    riot.route('blog/*', function(id) {
+        riot.unmount("blog")
+        riot.mount("blogDetail", id);
     })
+    riot.route.start();
 });
 
