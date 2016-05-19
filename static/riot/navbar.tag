@@ -1,16 +1,15 @@
-<navbar class="row">
+<navbar>
     <ol class="breadcrumb">
-        <li><a onclick={ parent.goHome }>Home</a></li>
+        <li><a href={this.parent.backToHome}>Home</a></li>
     </ol>
     <script>
-        var self = this;
+        this.backToHome = "/"
         this.on('update', function () {
-            console.log(this.opts) // Succeeds
+
         })
 
-        goHome(event)
-        {
+        this.on('mount', function () {
 
-        }
+        });
     </script>
 </navbar>

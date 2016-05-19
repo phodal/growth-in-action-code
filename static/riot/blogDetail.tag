@@ -8,7 +8,7 @@
         var self = this;
 
         this.on('update', function () {
-            console.log(this.opts) // Succeeds
+
         })
 
         this.on('mount', function (id) {

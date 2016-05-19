@@ -45,7 +45,7 @@ riot.mount("blog");
 
 riot.route.base('#');
 
-riot.route('/blogDetail/*', function(id) {
+riot.route('blogDetail/*', function(id) {
     riot.mount("blogDetail", {id: id})
 });
 

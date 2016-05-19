@@ -7,7 +7,7 @@
     <script>
         var self = this;
         this.on('update', function () {
-            console.log(this.opts)
+
         })
 
         this.on('mount', function (id) {
@@ -20,7 +20,7 @@
         click(event)
         {
             this.unmount();
-            riot.route("/blogDetail/" + event.item.id);
+            riot.route("blogDetail/" + event.item.id);
         }
     </script>
 </blog>
