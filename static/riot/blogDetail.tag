@@ -10,9 +10,8 @@
             console.log(this.opts) // Succeeds
         })
 
-        console.log("==========")
-
         this.on('mount', function () {
+            console.log(this.opts);
             responseStream(1).subscribe(function (response) {
                 self.opts = response;
                 self.update();

@@ -1,6 +1,6 @@
 <blog class="row">
     <div class="col-sm-4" each={ opts }>
-        <h2><a href="#/blog/{id}" onclick={ parent.click }>{ title }</a></h2>
+        <h2><a href="#/blogDetail/{id}" onclick={ parent.click }>{ title }</a></h2>
         { body }
         { posted } - By { author }
     </div>
@@ -12,7 +12,8 @@
 
         click(event)
         {
-            riot.route("blog/" + event.item.id);
+            this.unmount();
+            riot.route("/blogDetail/" + event.item.id);
         }
     </script>
 </blog>
