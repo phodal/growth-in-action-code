@@ -21,7 +21,7 @@
 Thanks to
 ---
 
-Blogpost Model & Template basis on [https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django](https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django)
+Blogpost Model & Template basis on [https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django/](https://www.djangorocks.com/tutorials/how-to-create-a-basic-blog-in-django/)
 
 License
 ---
