@@ -22,7 +22,7 @@ $(document).ready(function () {
 var responseStream = function (blogId) {
     var url = '/api/blogpost/?format=json';
 
-    if(blogId) {
+    if (blogId) {
         url = '/api/blogpost/' + blogId + '?format=json';
     }
 
@@ -40,12 +40,16 @@ var responseStream = function (blogId) {
     });
 };
 
-riot.mount("blog");
-
 riot.route.base('#');
 
-riot.route('blogDetail/*', function(id) {
+riot.route('blog/*', function (id) {
     riot.mount("blogDetail", {id: id})
 });
 
+riot.route('blog', function () {
+    riot.mount("blog")
+});
+
 riot.route.start();
+
+riot.route("blog");

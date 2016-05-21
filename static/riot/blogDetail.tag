@@ -13,5 +13,9 @@
                 self.update();
             })
         })
+        clickTitle(event) {
+            self.unmount(true);
+            riot.route("blog");
+        }
     </script>
 </blogDetail>

@@ -16,8 +16,8 @@
 
         click(event)
         {
-            this.unmount();
-            riot.route("blogDetail/" + event.item.id);
+            self.unmount(true);
+            riot.route("blog/" + event.item.id);
         }
     </script>
 </blog>
