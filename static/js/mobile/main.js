@@ -40,7 +40,6 @@ var responseStream = function (blogId) {
     });
 };
 
-riot.mount("navbar");
 riot.mount("blog");
 
 riot.route.base('#');

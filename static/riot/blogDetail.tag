@@ -1,4 +1,5 @@
 <blogDetail class="row">
+    <navbar title="{ opts.title }"></navbar>
     <div class="col-sm-4">
         <h2>{ opts.title }</h2>
         { opts.body }

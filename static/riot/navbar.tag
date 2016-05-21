@@ -9,7 +9,7 @@
         })
 
         this.on('mount', function () {
-
+            console.log(this.opts);
         });
     </script>
 </navbar>

@@ -1,4 +1,5 @@
 <blog class="row">
+    <navbar></navbar>
     <div class="col-sm-4" each={ opts }>
         <h2><a href="#/blogDetail/{id}" onclick={ parent.click }>{ title }</a></h2>
         { body }
