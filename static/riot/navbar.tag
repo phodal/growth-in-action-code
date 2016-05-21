@@ -4,10 +4,6 @@
     </ol>
     <script>
         this.backToHome = "/"
-        this.on('update', function () {
-
-        })
-
         this.on('mount', function () {
             console.log(this.opts);
         });

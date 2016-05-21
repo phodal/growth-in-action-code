@@ -7,10 +7,6 @@
     </div>
     <script>
         var self = this;
-        this.on('update', function () {
-
-        })
-
         this.on('mount', function (id) {
             responseStream().subscribe(function (response) {
                 self.opts = response;
