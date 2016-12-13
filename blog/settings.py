@@ -41,9 +41,8 @@ ALLOWED_HOSTS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            'templates/'
-        ],
+        'DIRS': ['templates/'],
+        'APP_DIRS': True,
         'OPTIONS': {
             'loaders': {
                 'django_mobile.loader.Loader',
@@ -55,11 +54,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django_mobile.context_processors.flavour'
             ],
         },
     },
 ]
+
+
+# dirty fixed for https://github.com/gregmuellegger/django-mobile/issues/72
+TEMPLATE_LOADERS = TEMPLATES[0]['OPTIONS']['loaders']
 
 # Application definition
 
@@ -120,8 +122,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
-    '/static/js/',
-    '/static/css/',
 )
 
 JWT_AUTH = {
