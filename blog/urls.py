@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
@@ -21,7 +21,7 @@ sitemaps =  {
     "blog": BlogSitemap
 }
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^$', blogpostViews.index, name='main'),
     url(r'^blog/(?P<slug>[^\.]+).html', blogpostViews.view_post, name='view_blog_post'),
     url(r'^comments/', include('django_comments.urls')),
@@ -33,4 +33,4 @@ urlpatterns = patterns('',
     url(r'^api-token-auth/', DRFViews.obtain_jwt_token),
     url(r'^api-token-refresh/', DRFViews.refresh_jwt_token),
     url(r'^api-token-verify/', DRFViews.verify_jwt_token),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

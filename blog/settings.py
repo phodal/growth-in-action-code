@@ -30,8 +30,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = False
 
-TEMPLATE_DEBUG = False
-
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
@@ -42,7 +40,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates/'],
-        'APP_DIRS': True,
         'OPTIONS': {
             'loaders': {
                 'django_mobile.loader.Loader',
