@@ -20,7 +20,7 @@ class IsAuthenticatedOrReadOnly(BasePermission):
         return False
 
 
-class BlogpsotSerializer(serializers.HyperlinkedModelSerializer):
+class BlogpostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Blogpost
         fields = ('title', 'author', 'body', 'slug', 'id')
