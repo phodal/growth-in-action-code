@@ -28,7 +28,7 @@ class BlogpostSerializer(serializers.HyperlinkedModelSerializer):
 
 class BlogpostSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-    serializer_class = BlogpsotSerializer
+    serializer_class = BlogpostSerializer
     search_fields = 'title'
 
     def get_queryset(self):
@@ -41,7 +41,7 @@ class BlogpostSet(viewsets.ModelViewSet):
         if search_param is not None:
             queryset = Blogpost.objects.filter(title__contains=search_param)
 
-        serializer = BlogpsotSerializer(queryset, many=True)
+        serializer = BlogpostSerializer(queryset, many=True)
         return Response(serializer.data)
 
 
